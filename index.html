@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Код помилки</title>
+    <title>Коди помилок WMF</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2c3e50">
     <style>
@@ -13,7 +13,6 @@
         h1, h2 { color: #2c3e50; text-align: center; margin-bottom: 20px; }
         h2 { font-size: 1.2rem; text-transform: uppercase; color: #7f8c8d; margin-top: 0; }
         
-        /* Стиль блоку з текстом */
         .result-box { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; min-height: 150px; max-height: 50vh; overflow-y: auto; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.1rem; color: #34495e; line-height: 1.5; margin-bottom: 20px; white-space: pre-wrap; }
         
         .error-code-display { font-size: 2rem; font-weight: bold; color: #c0392b; margin-bottom: 10px; }
@@ -23,7 +22,6 @@
         
         .nav-buttons { display: flex; gap: 20px; width: 100%; max-width: 400px; justify-content: space-between; margin-top: auto; margin-bottom: 20px; }
         
-        /* КНОПКИ */
         button { background-color: #3498db; color: white; border: none; border-radius: 50px; width: 60px; height: 60px; font-size: 30px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: transform 0.1s, background 0.2s; display: flex; align-items: center; justify-content: center; padding-bottom: 5px; font-family: sans-serif; }
         button:active { transform: scale(0.95); }
         
@@ -42,16 +40,19 @@
 
     <div id="screen-home" class="screen active">
         <h1>🔍 Коди помилок WMF</h1>
-        <div style="margin-bottom: 10px; color: #7f8c8d;">Введіть код:</div>
+        <div style="margin-bottom: 10px; color: #7f8c8d;">Введіть код помилки</div>
         <input type="text" id="input-code" placeholder="..." autofocus>
-        <button id="btn-search">&#8594;</button> </div>
+        <button id="btn-search">&#8594;</button>
+    </div>
 
     <div id="screen-desc" class="screen">
         <div class="error-code-display" id="display-code-1"></div>
         <h2>Опис помилки</h2>
         <div class="result-box" id="text-desc"></div>
         <div class="nav-buttons">
-            <button class="btn-back" onclick="goHome()">&#8592;</button> <button class="btn-next" onclick="goTo('screen-cause')">&#8594;</button> </div>
+            <button class="btn-back" onclick="goHome()">&#8592;</button>
+            <button class="btn-next" onclick="goTo('screen-cause')">&#8594;</button>
+        </div>
     </div>
 
     <div id="screen-cause" class="screen">
@@ -59,7 +60,9 @@
         <h2>Причина</h2>
         <div class="result-box" id="text-cause"></div>
         <div class="nav-buttons">
-            <button class="btn-back" onclick="goTo('screen-desc')">&#8592;</button> <button class="btn-next" onclick="goTo('screen-solution')">&#8594;</button> </div>
+            <button class="btn-back" onclick="goTo('screen-desc')">&#8592;</button>
+            <button class="btn-next" onclick="goTo('screen-solution')">&#8594;</button>
+        </div>
     </div>
 
     <div id="screen-solution" class="screen">
@@ -67,7 +70,8 @@
         <h2>Рішення</h2>
         <div class="result-box" id="text-solution"></div>
         <div class="nav-buttons">
-            <button class="btn-back" onclick="goTo('screen-cause')">&#8592;</button> <button class="btn-home" onclick="goHome()">🏠 Додому</button>
+            <button class="btn-back" onclick="goTo('screen-cause')">&#8592;</button>
+            <button class="btn-home" onclick="goHome()">🏠 Додому</button>
         </div>
     </div>
 
@@ -121,7 +125,6 @@
         if (e.key === 'Enter') searchError();
     });
     
-    // Реєстрація Service Worker (Виправлено помилку з дужками)
     if ('serviceWorker' in navigator) { 
         navigator.serviceWorker.register('sw.js').catch(()=>{}); 
     }
