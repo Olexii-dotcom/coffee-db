@@ -10,7 +10,10 @@
         body { font-family: -apple-system, sans-serif; background: #f0f2f5; margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
         .screen { display: none; flex-direction: column; height: 100%; padding: 20px; box-sizing: border-box; justify-content: center; align-items: center; animation: fadeIn 0.3s ease; }
         .screen.active { display: flex; }
-        h1, h2 { color: #2c3e50; text-align: center; margin-bottom: 20px; }
+        
+        /* ЗМІНА 1: Заголовок став більшим */
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 20px; font-size: 2rem; }
+        
         h2 { font-size: 1.2rem; text-transform: uppercase; color: #7f8c8d; margin-top: 0; }
         
         .result-box { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; min-height: 150px; max-height: 50vh; overflow-y: auto; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.1rem; color: #34495e; line-height: 1.5; margin-bottom: 20px; white-space: pre-wrap; }
@@ -22,14 +25,32 @@
         
         .nav-buttons { display: flex; gap: 20px; width: 100%; max-width: 400px; justify-content: space-between; margin-top: auto; margin-bottom: 20px; }
         
-        button { background-color: #3498db; color: white; border: none; border-radius: 50px; width: 60px; height: 60px; font-size: 30px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: transform 0.1s, background 0.2s; display: flex; align-items: center; justify-content: center; padding-bottom: 5px; font-family: sans-serif; }
+        /* ЗМІНА 2: Стилі кнопок - ОДНАКОВИЙ КОЛІР і ВЕЛИКИЙ РОЗМІР */
+        button { 
+            background-color: #3498db; /* Єдиний синій колір для всіх */
+            color: white; 
+            border: none; 
+            border-radius: 50px; 
+            width: 70px;  /* Ширше */
+            height: 70px; /* Вище */
+            font-size: 40px; /* Велика стрілка */
+            cursor: pointer; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+            transition: transform 0.1s, background 0.2s; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding-bottom: 8px; /* Центрування стрілки */
+            font-family: sans-serif; 
+        }
         button:active { transform: scale(0.95); }
         
-        button.btn-back { background-color: #95a5a6; }
-        button.btn-home { background-color: #27ae60; width: auto; padding: 0 30px; font-size: 18px; flex-grow: 1; padding-bottom: 0; }
-        button.btn-next { background-color: #2980b9; margin-left: auto; }
+        /* Прибираємо сірий колір для кнопки "Назад", тепер вона теж синя */
+        button.btn-back { background-color: #3498db; }
         
-        #btn-search { margin-top: 20px; width: 80px; height: 80px; font-size: 40px; padding-bottom: 5px; }
+        button.btn-home { background-color: #27ae60; width: auto; padding: 0 30px; font-size: 18px; flex-grow: 1; padding-bottom: 0; }
+        
+        #btn-search { margin-top: 20px; width: 90px; height: 90px; font-size: 50px; padding-bottom: 10px; }
         
         .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #e74c3c; color: white; padding: 10px 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 100; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -39,8 +60,7 @@
     <div id="toast" class="toast">Помилку не знайдено</div>
 
     <div id="screen-home" class="screen active">
-        <h1>🔍 Коди помилок WMF</h1>
-        <div style="margin-bottom: 10px; color: #7f8c8d;">Введіть код помилки</div>
+        <h1>Введіть код помилки</h1>
         <input type="text" id="input-code" placeholder="..." autofocus>
         <button id="btn-search">&#8594;</button>
     </div>
