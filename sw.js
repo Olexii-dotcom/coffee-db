@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wmf-app-v15';
+const CACHE_NAME = 'wmf-app-v16';
 const ASSETS = ['./', './index.html', './manifest.json'];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
